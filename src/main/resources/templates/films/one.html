@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
+  <title>About movie</title>
+</head>
+<body class="bg-dark">
+<div class="container">
+  <div class="row">
+    <table class="table table-dark table-borderless">
+      <tr>
+        <td class="w-50"><img th:src="@{/files/{fileId}(fileId=${film.fileId})}" class="w-100" alt="no image">
+        </td>
+        <td>
+          <table class="table table-striped table-dark">
+            <tr>
+              <td>
+                <p class="text-secondary m-1">Title:</p>
+                <p th:text="${film.name}"></p></td>
+            </tr>
+            <tr>
+              <td>
+                <p class="text-secondary m-1">What about:</p>
+                <p th:text="${film.description}"></p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p class="text-secondary m-1">Release year:</p>
+                <p th:text="${film.filmYear}"></p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p class="text-secondary m-1">Genre:</p>
+                <p th:text="${film.genre}"></p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p class="text-secondary m-1">Age rating:</p>
+                <p th:text="${film.minimalAge}"></p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p class="text-secondary">Run time (min):</p>
+                <p th:text="${film.durationInMinutes}"></p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</body>
+</html>
