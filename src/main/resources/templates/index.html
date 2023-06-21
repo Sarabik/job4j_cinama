@@ -11,17 +11,12 @@
     <title>Film Forum Cinema</title>
 </head>
 <body>
-<div class="container-fluid p-0">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <div class="collapse navbar-collapse">
-                <div class="navbar-nav me-auto">
-                    <a class="nav-item nav-link active" href="/">Главная</a>
-                    <a class="nav-item nav-link" th:href="@{/films}">Кинотека</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+<div class="container mt-2">
+    <h3>Film Forum Cinema</h3>
+    <ul>
+        <li><a th:href="@{/sessions}">What's on today</a></li>
+        <li><a th:href="@{/films}">All films</a></li>
+    </ul>
 </div>
 </body>
 </html>

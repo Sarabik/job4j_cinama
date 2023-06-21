@@ -8,7 +8,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 
-  <title>Schedule for today</title>
+  <title>Schedule for selected film</title>
 </head>
 <body class="bg-dark">
 <div class="container">
@@ -39,6 +39,9 @@
       </tr>
       </tbody>
     </table>
+  </div>
+  <div class="row w-75">
+    <div class="col-6"><a class="btn btn-secondary w-100" th:href="@{/sessions}">Show all film sessions</a></div>
   </div>
 </div>
 </body>

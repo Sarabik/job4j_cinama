@@ -6,11 +6,20 @@ import java.util.Objects;
 
 public class FilmSession {
 
+    public static final Map<String, String> COLUMN_MAPPING = Map.of(
+            "id", "id",
+            "film_id", "filmId",
+            "halls_id", "hallId",
+            "start_time", "startTime",
+            "end_time", "endTime",
+            "price", "price"
+    );
+
     private int id;
 
-    private Film film;
+    private int filmId;
 
-    private Hall hall;
+    private int hallId;
 
     private LocalDateTime startTime;
 
@@ -21,10 +30,10 @@ public class FilmSession {
     public FilmSession() {
     }
 
-    public FilmSession(int id, Film film, Hall hall, LocalDateTime startTime, LocalDateTime endTime, int price) {
+    public FilmSession(int id, int filmId, int hallId, LocalDateTime startTime, LocalDateTime endTime, int price) {
         this.id = id;
-        this.film = film;
-        this.hall = hall;
+        this.filmId = filmId;
+        this.hallId = hallId;
         this.startTime = startTime;
         this.endTime = endTime;
         this.price = price;
@@ -39,20 +48,20 @@ public class FilmSession {
         this.id = id;
     }
 
-    public Film getFilm() {
-        return film;
+    public int getFilmId() {
+        return filmId;
     }
 
-    public void setFilm(Film film) {
-        this.film = film;
+    public void setFilmId(int filmId) {
+        this.filmId = filmId;
     }
 
-    public Hall getHall() {
-        return hall;
+    public int getHallId() {
+        return hallId;
     }
 
-    public void setHall(Hall hall) {
-        this.hall = hall;
+    public void setHallId(int hallId) {
+        this.hallId = hallId;
     }
 
     public LocalDateTime getStartTime() {
@@ -79,7 +88,6 @@ public class FilmSession {
         this.price = price;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -89,11 +97,11 @@ public class FilmSession {
             return false;
         }
         FilmSession that = (FilmSession) o;
-        return id == that.id;
+        return id == that.id && filmId == that.filmId && hallId == that.hallId;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(id, filmId, hallId);
     }
 }

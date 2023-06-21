@@ -58,6 +58,10 @@
         </td>
       </tr>
     </table>
+    <div class="row w-75">
+      <div class="col-6"><a class="btn btn-secondary w-100" th:href="@{/films}">Back to film list</a></div>
+      <div class="col-6"><a class="btn btn-info w-100" th:href="@{/sessions/{id}(id=${film.id})}">Show this film sessions today</a></div>
+    </div>
   </div>
 </div>
 </body>
