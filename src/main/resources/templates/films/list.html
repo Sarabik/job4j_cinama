@@ -21,9 +21,13 @@
           <a class="nav-item nav-link" th:href="@{/sessions}">What's on today</a>
           <a class="nav-item nav-link active" th:href="@{/films}">All films</a>
         </div>
-        <div class="navbar-nav d-flex flex-row-reverse">
+        <div class="navbar-nav d-flex flex-row-reverse" th:if="${user.fullName == 'guest'}">
           <a class="nav-item nav-link me-3" th:href="@{/users/register}">Registration</a>
           <a class="nav-item nav-link" th:href="@{/users/login}">Sign in</a>
+        </div>
+        <div class="navbar-nav d-flex flex-row-reverse" th:if="${user.fullName != 'guest'}">
+          <a class="nav-item nav-link me-3" th:text="${user.fullName}"></a>
+          <a class="nav-item nav-link" th:href="@{/users/logout}">Sign out</a>
         </div>
       </div>
     </div>
