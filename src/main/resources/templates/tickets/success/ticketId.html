@@ -8,7 +8,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 
-  <title>Schedule for selected film</title>
+  <title>Get the ticket</title>
 </head>
 <body class="bg-dark">
 <div class="container-fluid p-0">
@@ -21,49 +21,26 @@
           <a class="nav-item nav-link" th:href="@{/sessions}">What's on today</a>
           <a class="nav-item nav-link" th:href="@{/films}">All films</a>
         </div>
-        <div class="navbar-nav d-flex flex-row-reverse" th:if="${user.fullName == 'guest'}">
-          <a class="nav-item nav-link me-3" th:href="@{/users/register}">Registration</a>
-          <a class="nav-item nav-link" th:href="@{/users/login}">Sign in</a>
-        </div>
-        <div class="navbar-nav d-flex flex-row-reverse" th:if="${user.fullName != 'guest'}">
+        <div class="navbar-nav d-flex flex-row-reverse">
           <a class="nav-item nav-link me-3" th:text="${user.fullName}"></a>
           <a class="nav-item nav-link" th:href="@{/users/logout}">Sign out</a>
         </div>
       </div>
     </div>
   </nav>
-</div>
-<div class="container">
-  <div class="row">
-    <table class="table table-striped table-dark">
-      <thead>
-      <tr>
-        <th class="col-1">Start time</th>
-        <th class="col-1"></th>
-        <th class="col-4">About session</th>
-        <th class="col-2">Price</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr th:each="one_session: ${sessions}">
-        <td><h5 th:text="${#temporals.format(one_session.startTime, 'HH:mm')}"></h5></td>
-        <td><img th:src="@{/files/{fileId}(fileId=${one_session.film.fileId})}" class="w-100" alt="no image"></td>
-        <td>
-          <h5 th:text="${one_session.film.name}"></h5>
+  <div class="container">
+      <div class="row">
+        <div class="col-6">
           <p></p>
-          <p>Location: <span th:text="${one_session.hall.name}"></span></p>
-          <p>End time: <span th:text="${#temporals.format(one_session.endTime, 'HH:mm')}"></span></p>
-        </td>
-        <td>
-          <p><span th:text="${one_session.price}"></span>  EUR</p>
-          <div class="col-6"><a class="btn btn-info w-100" th:href="@{/tickets/{sessionId}(sessionId=${one_session.id})}">Buy ticket</a></div>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="row w-75">
-    <div class="col-6"><a class="btn btn-secondary w-100" th:href="@{/sessions}">Show all film sessions</a></div>
+          <h4 class="text-light">Success! Here is your ticket information:</h4>
+          <p></p>
+          <p class="text-light">Film title: <span th:text="${filmSession.film.name}"></span></p>
+          <p class="text-light">Start time: <span th:text="${#temporals.format(filmSession.startTime, 'HH:mm')}"></span></p>
+          <p class="text-light">Location: <span th:text="${filmSession.hall.name}"></span></p>
+          <p class="text-light">Row number: <span th:text="${ticket.rowNumber}"></span></p>
+          <p class="text-light">Place number: <span th:text="${ticket.placeNumber}"></span></p>
+        </div>
+      </div>
   </div>
 </div>
 </body>

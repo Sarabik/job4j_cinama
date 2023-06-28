@@ -45,26 +45,28 @@ public class TicketController {
                 .toList();
         model.addAttribute("rowCount", rowCollection);
         model.addAttribute("placeCount", placeCollection);
-        return "tickets/buy";
+        return "tickets/sessionId";
     }
 
     @PostMapping("/{sessionId}")
-    public String saveTicket(Model model, @PathVariable int sessionId, HttpServletRequest request) {
-        System.out.println("start");
-//        Ticket ticket = new Ticket();
-//        ticket.setId(0);
-//        ticket.setSessionId(sessionId);
-//        ticket.setRowNumber(Integer.parseInt(request.getParameter("rowNumber")));
-//        ticket.setPlaceNumber(Integer.parseInt(request.getParameter("placeNumber")));
-//        ticket.setUserId(1);
-//        System.out.println(ticket.getSessionId() + ticket.getRowNumber() + ticket.getPlaceNumber());
-//        ticketService.save(ticket);
-        return "redirect:/index";
+    public String saveTicket(Model model, @PathVariable int sessionId, @ModelAttribute Ticket ticket, HttpServletRequest request) {
+        Optional<Ticket> optionalTicket = ticketService.save(ticket);
+        if (optionalTicket.isEmpty()) {
+            model.addAttribute("message", "Ticket the to chosen place is already sold. Choose other place, please!");
+            model.addAttribute("currentSessionId", sessionId);
+            return "errors/404";
+        }
+        return "redirect:/tickets/success/" + optionalTicket.get().getId();
     }
 
-    @GetMapping("/success")
-    public String ticketBuySuccess() {
-        return "";
+    @GetMapping("/success/{ticketId}")
+    public String ticketBuySuccess(Model model, @PathVariable int ticketId, HttpServletRequest request) {
+        Ticket ticket = ticketService.findById(ticketId).get();
+        DtoFilmSession filmSession = filmSessionService.getById(ticket.getSessionId()).get();
+        model.addAttribute("ticket", ticket);
+        model.addAttribute("filmSession", filmSession);
+        HttpSession session = request.getSession();
+        model.addAttribute("user", session.getAttribute("user"));
+        return "tickets/success/ticketId";
     }
-
 }
