@@ -96,3 +96,7 @@ Failure page
 
 ![failure_page.JPG](screenshots/failure_page.JPG)
 
+**Contacts:**
+* name: Lidija Silantjeva
+* email: dalilija@inbox.lv
+* Telegram: @Lidik_sila
