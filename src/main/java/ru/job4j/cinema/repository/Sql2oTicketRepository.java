@@ -5,7 +5,6 @@ import org.sql2o.Connection;
 import org.sql2o.Query;
 import org.sql2o.Sql2o;
 import ru.job4j.cinema.model.Ticket;
-import ru.job4j.cinema.model.User;
 
 import java.util.Optional;
 

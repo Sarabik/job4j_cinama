@@ -13,8 +13,8 @@ values('The Lord of the Rings: The Return of the King',
 
 ('Coco',
 'Aspiring musician Miguel, confronted with his family''s ancestral ban on music, enters the Land of the Dead to find his great-great-grandfather, a legendary singer.',
-2017, 4, 7, 135, 4),
+2017, 5, 7, 135, 4),
 
 ('The Truman Show',
 'An insurance salesman discovers his whole life is actually a reality TV show.',
-1998, 5, 18, 137, 5);
+1998, 4, 18, 137, 5);

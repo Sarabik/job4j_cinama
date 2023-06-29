@@ -35,7 +35,7 @@ public class Film {
     public Film() {
     }
 
-    public Film(int id, String name, String description, int filmYear, String genre, byte minimalAge, int durationInMinutes, int fileId) {
+    public Film(int id, String name, String description, int filmYear, String genre, int minimalAge, int durationInMinutes, int fileId) {
         this.id = id;
         this.name = name;
         this.description = description;
