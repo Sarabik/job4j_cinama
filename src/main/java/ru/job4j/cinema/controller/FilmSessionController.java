@@ -29,10 +29,6 @@ public class FilmSessionController {
     @GetMapping("/{id}")
     public String getFilmSessions(Model model, @PathVariable int id) {
         Collection<DtoFilmSession> collection = filmSessionService.getAllByFilmId(id);
-        if (collection.isEmpty()) {
-            model.addAttribute("message", "Sessions not found");
-            return "errors/404";
-        }
         model.addAttribute("sessions", collection);
         return "sessions/film";
     }

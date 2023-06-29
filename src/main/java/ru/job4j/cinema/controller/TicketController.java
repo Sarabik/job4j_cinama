@@ -49,7 +49,7 @@ public class TicketController {
     }
 
     @PostMapping("/{sessionId}")
-    public String saveTicket(Model model, @PathVariable int sessionId, @ModelAttribute Ticket ticket, HttpServletRequest request) {
+    public String saveTicket(Model model, @PathVariable int sessionId, @ModelAttribute Ticket ticket) {
         Optional<Ticket> optionalTicket = ticketService.save(ticket);
         if (optionalTicket.isEmpty()) {
             model.addAttribute("message", "Ticket the to chosen place is already sold. Choose other place, please!");
