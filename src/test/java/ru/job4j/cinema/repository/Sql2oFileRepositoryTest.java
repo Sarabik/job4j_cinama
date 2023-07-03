@@ -38,7 +38,7 @@ class Sql2oFileRepositoryTest {
 
     @Test
     public void whenFindByIdThenFindIt() {
-        File expectedFile = new File("001.jpg", "files/001.jpg");
+        File expectedFile = new File("001.jpg", "src/main/resources/files/001.jpg");
         expectedFile.setId(1);
 
         File actualFile = sql2oFileRepository.findById(1).get();
