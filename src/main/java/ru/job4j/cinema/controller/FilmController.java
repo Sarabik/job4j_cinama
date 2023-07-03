@@ -31,7 +31,7 @@ public class FilmController {
         Optional<Film> filmOptional = filmService.findById(id);
         if (filmOptional.isEmpty()) {
             model.addAttribute("message", "Film not found");
-            return "errors/404";
+            return "errors/409";
         }
         model.addAttribute("film", filmOptional.get());
         return "films/one";

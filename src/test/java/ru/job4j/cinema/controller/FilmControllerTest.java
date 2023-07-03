@@ -67,6 +67,6 @@ class FilmControllerTest {
         Object actualExceptionMessage = model.getAttribute("message");
 
         AssertionsForClassTypes.assertThat(actualExceptionMessage).isEqualTo(expectedException.getMessage());
-        AssertionsForClassTypes.assertThat(view).isEqualTo("errors/404");
+        AssertionsForClassTypes.assertThat(view).isEqualTo("errors/409");
     }
 }

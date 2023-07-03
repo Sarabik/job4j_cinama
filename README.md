@@ -22,25 +22,24 @@ Any user can get acquainted with film sessions, as well as with detailed informa
 
 Please note that all database tables, with the exception of "tickets" and "users", are scripted and filled with liquibase.
 
-Spring Framework is used as the **main framework**. The pages are developed with Thymeleaf and Bootstrap and **dependencies** are used: PostgreSQL 42.5.4, Liquibase 4.15.0 and Sql2o 1.6.0.
+Spring Framework is used as the **main framework**. The pages are developed with Thymeleaf and Bootstrap and **dependencies** are used: PostgreSQL 42.5.1, Liquibase 4.15.0 and Sql2o 1.6.0.
 
-**Environment requirements:** Java 17.0.2, PostgreSQL 14.0, Apache Maven 3.8.4
+**Environment requirements:** Java 17.0.2, PostgreSQL 42.5.1, Apache Maven 3.1.2
 
 **Used technologies:**
 * Java 17
-* Maven 3.8
+* Maven 3.1.2
 * PostgreSQL 14
-* Spring Boot
-* Junit Jupiter
-* AssertJ
-* Mockito
-* Liquibase 4
-* Sql2o
-* H2database
-* Thymeleaf
-* Bootstrap
-* Checkstyle
-* Log4J
+* Spring Boot 2.7.6
+* Junit Jupiter 5
+* AssertJ 3
+* Mockito 3.5.13
+* Liquibase 4.15.0
+* Sql2o 1.6.0
+* H2database 2.1.214
+* Thymeleaf 3.0.4
+* Bootstrap 5.2.3
+* Checkstyle 3.1.2
 
 **How to run the project:**
 1. To run the project, you need to clone the project from this repository;

@@ -36,7 +36,7 @@ class FileControllerTest {
     }
 
     @Test
-    public void whenDidNotFindImageByIdThenGetStatus404() {
+    public void whenDidNotFindImageByIdThenGetStatus409() {
         when(fileService.getFileById(anyInt())).thenReturn(Optional.empty());
 
         ResponseEntity<?> responseEntity = fileController.getById(1);

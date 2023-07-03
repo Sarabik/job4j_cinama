@@ -93,7 +93,7 @@ class TicketControllerTest {
         Object actualExceptionMessage = model.getAttribute("message");
         Object actualSessionId = model.getAttribute("currentSessionId");
 
-        assertThat(view).isEqualTo("errors/404");
+        assertThat(view).isEqualTo("errors/409");
         assertThat(actualSessionId).isEqualTo(expectedTicket.getSessionId());
         assertThat(actualExceptionMessage).isEqualTo(expectedRuntimeException.getMessage());
     }

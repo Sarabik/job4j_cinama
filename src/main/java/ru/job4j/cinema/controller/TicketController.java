@@ -31,7 +31,7 @@ public class TicketController {
         Optional<DtoFilmSession> optionalFilmSession = filmSessionService.getById(sessionId);
         if (optionalFilmSession.isEmpty()) {
             model.addAttribute("message", "Film session is not found");
-            return "errors/404";
+            return "errors/409";
         }
         DtoFilmSession filmSession = optionalFilmSession.get();
         model.addAttribute("filmSession", filmSession);
@@ -54,7 +54,7 @@ public class TicketController {
         if (optionalTicket.isEmpty()) {
             model.addAttribute("message", "Ticket the to chosen place is already sold. Choose other place, please!");
             model.addAttribute("currentSessionId", sessionId);
-            return "errors/404";
+            return "errors/409";
         }
         return "redirect:/tickets/success/" + optionalTicket.get().getId();
     }
